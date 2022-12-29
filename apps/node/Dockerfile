@@ -1,5 +1,14 @@
 FROM centos:7
 
+RUN yum -y install dnf-plugins-core
+RUN yum -y install epel-release
+
+RUN yum -y install yum-plugin-copr
+RUN yum -y copr enable openfoam/openfoam
+
+RUN yum -y install openfoam-selector
+RUN yum -y install openfoam2206-default
+
 # Initial slurm parameters and release file existence check
 ARG SLURM_VERSION='21.08.8-2'
 ENV SLURM_VERSION $SLURM_VERSION
@@ -66,5 +75,11 @@ EXPOSE 6817 6818 6819
 VOLUME ["/etc/munge", "/var/spool/slurm"]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
+RUN yum -y group install development
+RUN wget https://cmake.org/files/v3.12/cmake-3.12.3.tar.gz && tar zxvf cmake-3.* && cd cmake-3.* && ./bootstrap && make -j$(nproc) && make install
+RUN yum install -y centos-release-scl
+RUN yum install -y devtoolset-9
+RUN echo "source /opt/rh/devtoolset-9/enable" >> /etc/bashrc
 
 CMD /usr/bin/supervisord
