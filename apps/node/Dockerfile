@@ -77,9 +77,13 @@ VOLUME ["/etc/munge", "/var/spool/slurm"]
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 RUN yum -y group install development
-RUN wget https://cmake.org/files/v3.12/cmake-3.12.3.tar.gz && tar zxvf cmake-3.* && cd cmake-3.* && ./bootstrap && make && make install
 RUN yum install -y centos-release-scl
 RUN yum install -y devtoolset-9
 RUN echo "source /opt/rh/devtoolset-9/enable" >> /etc/bashrc
+RUN yum -y install cmake3
+RUN yum -y clean all
+
+ADD build_catch2.sh /build_catch2.sh
+RUN /build_catch2.sh
 
 CMD /usr/bin/supervisord
