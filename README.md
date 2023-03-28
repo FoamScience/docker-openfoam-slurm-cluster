@@ -15,8 +15,8 @@ The slurm version is `v21.08.8-2`
 Clone the repository
 
 ```
-git clone git@github.com:xtreme-d/docker-slurm-cluster.git docker-slurm-cluster
-cd docker-slurm-cluster
+git clone https://github.com/FoamScience/docker-openfoam-slurm-cluster
+cd docker-openfoam-slurm-cluster
 ```
 
 Next, build the node image.
@@ -36,4 +36,4 @@ To access the head node:
 docker exec -it axc-headnode bash
 ```
 
-NOTE: the first running of Slurm might take up to 1 minute because a new MariaDB database initiation procedure is slow a bit.
+NOTE: the first running of Slurm might take up to 1 minute because a new MariaDB database initiation procedure is sa bit slow.
