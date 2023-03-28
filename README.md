@@ -1,14 +1,14 @@
-docker-slurm-cluster
-====================
+Docker-Slurm Cluster with OpenFOAM
+==================================
 
-This is a demonstration of how the Slurm could be deployed in the docker infrastructure using docker compose.
+This is a demonstration of how the Slurm/OpenFOAM could be deployed in the docker infrastructure using docker compose.
 
 It consist of the following services:
 - MariaDB (for accounting data)
 - head node (munge, slurmd, slurmctld, slurmdbd)
 - compute node x4 (munge, slurmd)
 
-The slurm version is `v21.08.8-2`
+The slurm version is `v21.08.8-2` and OpenFOAM `v2206`
 
 # How to deploy
 
