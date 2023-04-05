@@ -10,7 +10,7 @@ RUN yum -y install openfoam-selector
 RUN yum -y install openfoam2206-default
 
 # Initial slurm parameters and release file existence check
-ARG SLURM_VERSION='21.08.8-2'
+ARG SLURM_VERSION='23.02.1'
 ENV SLURM_VERSION $SLURM_VERSION
 ENV SLURM_RELEASE_FILE "https://download.schedmd.com/slurm/slurm-${SLURM_VERSION}.tar.bz2"
 RUN response_code=`curl -o /dev/null -Isw '%{http_code}\n' "${SLURM_RELEASE_FILE}"`; \
