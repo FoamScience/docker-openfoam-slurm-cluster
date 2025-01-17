@@ -2,7 +2,7 @@ Docker-Slurm Cluster with OpenFOAM
 ==================================
 
 > [!WARNING]
-> Deprecated, look at [hpc-makeshift-cluster]([hpc-makeshift-cluster](https://github.com/FoamScience/hpc-makeshift-cluster) for a more recent version. 
+> Deprecated, look at [hpc-makeshift-cluster](https://github.com/FoamScience/hpc-makeshift-cluster) for a more recent version. 
 
 This is a demonstration of how the Slurm/OpenFOAM could be deployed in the docker infrastructure using docker compose.
 
